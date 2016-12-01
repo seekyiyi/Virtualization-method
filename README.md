@@ -39,6 +39,15 @@ Guest OS 及Host OS 完全獨立在，不同的記憶體區塊，不會互相干
 
 這3種常見的虛擬化技術，效能排序為 OS 作業系統層虛擬化 > Para 半虛擬化 > Full 全虛擬化
 
+
+# Hardware‐Assisted Virtualization 硬體輔助虛擬化
+
+因為軟體架構虛擬化技術各有其優缺點，因此 處理機(Processor)大廠 Intel / AMD 決定從 x86 CPU 架構著手來改善 x86 虛擬化門檻，分別提出了 Intel-VT (Vanderpool) 及 AMD-V (Pacifica) 虛擬化技術可同時得到全虛擬化的良好支持性和半虛擬的高效性，這是硬體支持虛擬化技術的優勢。。簡言之，該技術便是將原有的 CPU 特權模式分為二個等級，原先的 Ring 0 ~ Ring 3 稱為Non-Root Mode，新增 Ring 1 稱為Root Mode。
+
+硬體支持虛擬化技術與hypervisor結合可以極大地提高虛擬化的效率。例如， KVM使用支持VT技術的CPU配合，可以使guest VM的性能損失降低到一個很小範圍內，本結構屬於 VMM分類中之hypervisor模型。
+
+![Virtualization-method](http://i.imgur.com/0jZtZEc.png)
+
 ![Virtualization-method](http://image.slidesharecdn.com/challengesandopportunitiescomputing-kuo-yi-120516090739-phpapp01/95/challenges-and-opportunities-computing-kuoyi-chen-47-728.jpg?cb=1337159465)
 
 ##補充##
